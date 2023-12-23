@@ -45,6 +45,16 @@ cmd | description
 `git diff -- file.txt` | Shows the changes for just `file.txt`
 `git show [SHA]` | Shows the changes a specific commit introduced
 
+### Hunks
+
+To add only a part of a file: ([read me](https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging) for details)
+
+- `git add -i` to enter interactive staging
+  - Select a file or files
+  - Press Enter
+- or `git add -p file.txt` to directly enter patch mode for one file
+- Git will ask you for each hunk what to do. Type `?` for help.
+
 ### Merging
 
 `git merge featureA master`
