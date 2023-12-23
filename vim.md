@@ -24,6 +24,7 @@
 - Start naked vim to have factory-reset behavior: `vim -u NONE -N file.txt`
 - Custom keybinds: Type `:help map-which-keys` for suggestions on what keys to
   use for custom keybinds.
+- Read [this](https://github.com/nanotee/nvim-lua-guide) to get started with lua
 
 Translating VimScript options to lua:
 
