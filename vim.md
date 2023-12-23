@@ -9,6 +9,9 @@
 ## Modes
 
 - I mapped `jk` to switch from insert to normal mode
+- `v` goes to *normal* visual mode (selecting text)
+  - `V` selects by line
+  - `C-v` selects by *rectangle* (like emacs did!)
 
 ## Config
 
@@ -20,6 +23,52 @@ vimscript | lua
 `set myoption` | `vim.opt.myoption = true`
 `set myoption=2` | `vim.opt.myoption = 2`
 `set myoption=sth` | `vim.opt.myoption = 'sth'`
+
+## Vim as a language
+
+From [Learn vim for the last time](https://danielmiessler.com/p/vim)
+
+### Verbs
+
+char | verb
+---- | ----
+d | delete
+c | change
+y | yank (copy)
+v | visually select (V for entire lines) 
+
+### Modifiers
+
+char | modification
+---- | ------------
+i | inside
+a | around
+NUM | number (e.g.: 1, 2, 10)
+t | "to": to char (excluding) (`;` for next, `,` for previous)
+f | "find": to char (including) (these only work on the current line)
+/ | find a string (literal or regex) 
+
+### Nouns
+
+char | noun
+---- | ----
+w | word
+s or )| sentence
+p or } | paragraph
+t | tag (think HTML/XML)
+b | block (think programming) 
+
+### Sentences
+
+Some examples:
+
+sentence | description
+-------- | -----------
+d2w | delete 2 words
+cis | change inside sentence
+yip | yank inside paragraph
+gqap | format around paragraph
+ct< | change until the next open bracket
 
 ## Normal mode
 
@@ -39,6 +88,20 @@ cmd | description
 `10G` | Goto line 10
 `GG` | Goto last line
 `%`  | Goto matching parenthesis
+---- | ----
+`w` or `W` | Move forward a word (`W` moves by big-word, i.e. ignores non-whitespace delimiters)
+`b` or `B` | Move backward a (big-)word
+`e` or `E` | Move to end of (big-)word
+`)` | Move forward a sentence
+`}` | Move forward a paragraph
+---- | ----
+`H` | move to the top of the screen
+`M` | move to the middle of the screen
+`L` | move to the bottom of the screen
+`^U` | move up half a screen
+`^D` | move down half a screen
+`^F` | page down
+`^B` | page up
 
 ### Editing
 
@@ -48,10 +111,9 @@ cmd | description
 `:%s/old/new/g` | Replace in whole file
 `:%s/old/new/gc` | Also prompt before each replace
 
-
 ### Files
 
-- [ ] Switch between open buffers
+- [ ] Switch between open (but currently not shown) buffers
 
 cmd | description
 --- | -----------
