@@ -2,3 +2,5 @@
 
 TODO
 
+- [ ] `poetry env`
+

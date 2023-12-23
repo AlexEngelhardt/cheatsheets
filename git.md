@@ -5,18 +5,21 @@
   - `git restore` for restoring edited files
 - The commands don't add new functionality, just make it easier than using `git checkout` for both tasks
 
-### Config
+
+## Config
 
 `git config --list --show-origin` shows the currently active config settings
 along with where they are set
 
-### .gitignore
+
+## .gitignore
 
 - `/foo` ignores the `foo` folder in the root
 - `foo/` ignores *every* `foo` folder
 - `foo` ignores *every* `foo` *file and folder*
 
-### Relative refs
+
+## Relative refs
 
 see also `git help revisions`
 
@@ -31,11 +34,14 @@ ref | description
 `master@{3}` | a *reflog*
 `master@{1.week.ago}` | This works too!
 
-### diff
+
+## git diff
 
 Generally, `git diff A B` shows the changes required to go **from A to B**.
 
 `git diff A` shows the changes required to go **from older to newer**.
+
+TODO: Difference between `git diff A B`, `git diff A..B` and `git diff A...B`
 
 cmd | description
 --- | -----------
@@ -44,6 +50,16 @@ cmd | description
 `git diff HEAD` | Difference from last commit to working tree
 `git diff -- file.txt` | Shows the changes for just `file.txt`
 `git show [SHA]` | Shows the changes a specific commit introduced
+
+
+## git log
+
+cmd | description
+--- | -----------
+`git log --follow file.txt` | Shows log only for commits that modified file.txt
+
+
+## git add
 
 ### Hunks
 
@@ -55,7 +71,8 @@ To add only a part of a file: ([read me](https://git-scm.com/book/en/v2/Git-Tool
 - or `git add -p file.txt` to directly enter patch mode for one file
 - Git will ask you for each hunk what to do. Type `?` for help.
 
-### Merging
+
+## git merge
 
 `git merge featureA master`
 
