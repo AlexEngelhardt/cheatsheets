@@ -104,6 +104,11 @@ The direction is merging A **into** B.
 - Try `git mergetool` when a conflict occurs. This opens a GUI (or `vimdiff`) where you can choose how to resolve conflicts.
 
 
+## git rebase
+
+"I started my work off of the wrong *base* commit"  =>  *Re-base* it!
+
+
 ## Remotes
 
 cmd | description

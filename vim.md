@@ -63,7 +63,30 @@ Type `:help key-notation` to read how to specify them.
 There is a search thingy available:  
 Type `:help CTRL-G` then press Ctrl-D to see possible completions
 
+### Neovim help
 
+Use `leader s h` (leader being Space) for a pretty help search!
+
+Use `:Telescope help_tags` to search in some different way
+
+## Plugins
+
+### Telescope
+
+A fuzzy finder like deft in emacs, but for everything!  
+Use `C-c` instead of pressing `Esc` 10 times to exit it.  
+`:Telescope builtin` shows you what functions are built in.
+
+### Mason
+
+Syntax highlighting and more (?) via the LSP (?). You can install new languages, try adding R
+
+### Treesitter
+
+This is a "parsing library".  
+It's most prominent feature is a syntax highlighter.  
+But it does much more. E.g. repeatedly pressing C-Space selects ever bigger syntactical regions. You can jump to the next function definition, etc.
+See the `-- [[ Configure Treesitter ]]` part in kickstart-nvim.lua for some more features it provides.
 
 ## Vim as a language
 
@@ -213,9 +236,6 @@ append some text to it, then repeat `n` (go to next occurence) and `.` (append t
 
 ### Files
 
-- [ ] View all opened but currently hidden buffers (possibly modified, unsaved ones)
-- [ ] Switch between open (but currently not shown) buffers
-
 cmd | description
 --- | -----------
 `:view file.txt` | Open file readonly
@@ -223,6 +243,9 @@ cmd | description
 `:tabnew file.txt` | Opens file in new tab
 `gt` | Goto next tab
 `gT` | Goto previous tab
+`Leader Space` | Switch between opened but hidden buffers
+`:Ntree` | Browse directory to open a new file
+`Leader sf` | search files with Telescope
 
 ### Windows
 
@@ -283,4 +306,15 @@ cmd | description
 `q` | stop recording
 `@a` | playback the macro named "a" once
 `.` | playback the macro a second, ..., time
+
+
+
+## Code 
+
+cmd | description
+--- | -----------
+`gd` | goto definition (of a function, e.g.)
+`gr` | find references where this field, function, etc. is used
+`:Telescope keymaps` |  Browse all currently mapped keys
+`:Mason` | Install new languages (press `i` to install)
 
