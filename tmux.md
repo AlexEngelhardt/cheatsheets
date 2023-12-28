@@ -53,8 +53,8 @@ cmd | description
 
 cmd | description
 --- | -----------
-`C-s "` | Split pane vertically
-`C-s %` | Split pane horizontally
+`C-s -` | Split pane vertically
+`C-s |` | Split pane horizontally
 `C-s [arrow]` | Change panes
 `C-s [hjlk]` | Change panes
 `C-s z` | Temporarily make pane fullscreen (or go back)
