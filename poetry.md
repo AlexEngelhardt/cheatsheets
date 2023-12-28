@@ -1,6 +1,0 @@
-# poetry
-
-TODO
-
-- [ ] `poetry env`
-
