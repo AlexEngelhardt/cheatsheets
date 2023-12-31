@@ -1,5 +1,10 @@
 # (neo)vim
 
+## TODO
+
+- [ ] Project wide search-in-files, like Ctrl-Shift-F in PyCharm (ripgrep style?)
+- [ ] Show unsaved changes. `:DiffOrig` must be installed somehow it seems
+
 ### Sources
 
 - `vimtutor`
