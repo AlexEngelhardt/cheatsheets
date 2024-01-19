@@ -91,7 +91,8 @@ Use `git reset -p` to unstage mistakenly added hunks.
 
 ## git branch
 
-To move an existing branch pointer to a different commit:
+- To move the currently checked out branch to a different commit (**This resets your uncommitted changes!**): `git reset --hard <commit-sha-or-branch-name>`
+- To move an existing branch pointer to a different commit:
 
 `git branch --force <branch-name> [<commit-sha-or-branch-name>]`
 

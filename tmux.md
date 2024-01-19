@@ -60,6 +60,6 @@ cmd | description
 `C-s z` | Temporarily make pane fullscreen (or go back)
 `C-s C-[arrow]` | Resize pane into direction (repeatable)
 `C-s x` | Kill pane (`C-d` from shell does that too)
-`C-s {` | Swap pane with left
-`C-s }` | Swap pane with right
+`C-s {` | Swap pane "up" re. its index (`C-s q`)
+`C-s }` | Swap pane "down"
 `C-s !` | Convert pane into new window
