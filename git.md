@@ -89,6 +89,14 @@ To add only a part of a file: ([read me](https://git-scm.com/book/en/v2/Git-Tool
 Afterwards, use `git diff --staged` to verify you staged the correct changes.
 Use `git reset -p` to unstage mistakenly added hunks.
 
+## git branch
+
+To move an existing branch pointer to a different commit:
+
+`git branch --force <branch-name> [<commit-sha-or-branch-name>]`
+
+If commit-sha is left blank, use the current commit.
+
 ## git merge
 
 `git merge featureA master`
