@@ -97,16 +97,33 @@ The direction is merging A **into** B.
 
 `git merge featureA` merges `featureA` into the currently active branch
 
+### "Saving your game"
+
+Remember git never changes an existing commit (even `git rebase` creates new commits with new SHAs instead of changing existing ones.
+
+So: Never copy your whole working directory to a `myrepo-backup` folder.
+
+Instead, know that [your game is
+saved](https://think-like-a-git.net/sections/experimenting-with-git/branches-as-savepoints.html)
+before e.g. a scary merge or rebase. You can always `git reset --hard sha` after
+e.g. a botched rebase
+
 ### Merge conflicts
 
 - Add `vimdiff` as the diff tool in your config file and use it, [read me](https://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/)
-- Using `diff3` should be the default, [read me](https://stackoverflow.com/questions/27417654/should-diff3-be-default-conflictstyle-on-git/70387424#70387424)
+- Using `diff3` should be the default, [read me](https://stackoverflow.com/questions/27417656/should-diff3-be-default-conflictstyle-on-git/70387424)
 - Try `git mergetool` when a conflict occurs. This opens a GUI (or `vimdiff`) where you can choose how to resolve conflicts.
 
 
 ## git rebase
 
 "I started my work off of the wrong *base* commit"  =>  *Re-base* it!
+
+- `git rebase master` rebases the currently checked out branch (commonly a
+  feature branch) onto the current state of master (commonly updated after a
+  pull)
+- `git rebase master feature` does the same, but without needing to be checked
+  out on feature (mnemonic: Start at `master`, end up at `feature`)
 
 
 ## Remotes
@@ -116,5 +133,5 @@ cmd | description
 `git fetch` | Only download all history, change nothing locally
 `git pull` | == `git fetch; git merge` (can be configured to use rebase instead)
 `git pull origin master` | Pull the branch `master` from the remote `origin`
-`git merge origin/master` | Merge the (locally available!) branch `origin/master` into the current branch
+`git merge origin/master` | Merge the (mlocally available!) branch `origin/master` into the current branch
 
