@@ -5,12 +5,11 @@
 - [ ] Project wide search-in-files, like Ctrl-Shift-F in PyCharm (ripgrep style?)
 - [ ] Show unsaved changes. `:DiffOrig` must be installed somehow it seems
 
-### Sources
+## Sources
 
 - `vimtutor`
 - [Learn vim for the last time](https://danielmiessler.com/p/vim)
-- TODO: Drew Neil, Practical Vim
-
+- TODO: Drew Neil, Practical Vim: Edit Text at the Speed of Thought
 
 
 ## Modes
@@ -40,6 +39,14 @@ vimscript | lua
 `set myoption=2` | `vim.opt.myoption = 2`
 `set myoption=sth` | `vim.opt.myoption = 'sth'`
 
+
+## Neat little tricks
+
+cmd | description
+--- | -----------
+`C-o` | In insert mode, this lets you execute *one* normal mode command
+--- | ----
+`g<Backspace>` | In normal mode, shows some navigation commands (kickstart-nvim only)
 
 
 ## Help
@@ -156,7 +163,7 @@ cmd | description
 --- | -----------
 `gg` | Goto line 0
 `10G` | Goto line 10
-`GG` | Goto last line
+`G` | Goto last line
 `%`  | Goto matching parenthesis
 ---- | ----
 `w` or `W` | Move forward a word (`W` moves by big-word, i.e. ignores non-whitespace delimiters)
@@ -165,9 +172,9 @@ cmd | description
 `)` | Move forward a sentence
 `}` | Move forward a paragraph
 ---- | ----
-`H` | move to the top of the screen
-`M` | move to the middle of the screen
-`L` | move to the bottom of the screen
+`H` | move to the top of the screen ("High")
+`M` | move to the middle of the screen ("Middle")
+`L` | move to the bottom of the screen ("Low")
 `^U` | move up half a screen
 `^D` | move down half a screen
 `^F` | page down
@@ -266,7 +273,7 @@ cmd | description
 --- | -----------
 `u` | Undo last
 `U` | Undo everything you did on this line
-`Ctrl-R` | Redo
+`Ctrl-R` | Redo (or `:redo`)
 
 ### Formatting
 
