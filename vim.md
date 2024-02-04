@@ -28,7 +28,7 @@
 - Start naked vim to have factory-reset behavior: `vim -u NONE -N file.txt`
 - Custom keybinds: Type `:help map-which-keys` for suggestions on what keys to
   use for custom keybinds.
-- Read [this](https://github.com/nanotee/nvim-lua-guide) to get started with lua
+- Read `:help lua-guide` to get started with lua
 
 Translating VimScript options to lua:
 
@@ -44,6 +44,7 @@ vimscript | lua
 
 cmd | description
 --- | -----------
+`:terminal` | Open a terminal in this window (if you forgot to run `tmux` :) )
 `C-o` | In insert mode, this lets you execute *one* normal mode command
 --- | ----
 `g<Backspace>` | In normal mode, shows some navigation commands (kickstart-nvim only)
@@ -53,7 +54,8 @@ cmd | description
 
 cmd | description
 --- | -----------
-`F1` or `:help` | Opens a new help window
+`F1` or `:help` | Opens a new help window (or on HTTP: https://neo.vimhelp.org/ or https://neo.vimhelp.org/ )
+`:help help` | Help on the help pages!
 `:help index` | Shows a list of default keybindings
 `C-w C-w` | Switch between windows
 `:e C-d` | Shows completions of commands that start with `e`
@@ -66,13 +68,14 @@ cmd | description
 `:help i_CTRL-W` | insert mode mapping for <C-w>
 `:help CTRL-W_CTRL-I` | normal mode mapping for <C-w><C-i>
 `:help i_CTRL-G_<Down>` | insert mode mapping for <C-g><Down>
+`:help i_<F1>` | help on the F1 key
 
 The help pages apply to the *default* keybinds, not those you might have remapped.
 
 You have to type the help topics exactly and case-sensitive.
 Type `:help key-notation` to read how to specify them.
 
-There is a search thingy available:  
+There is a search thingy available:
 Type `:help CTRL-G` then press Ctrl-D to see possible completions
 
 ### Neovim help
@@ -85,9 +88,10 @@ Use `:Telescope help_tags` to search in some different way
 
 ### Telescope
 
-A fuzzy finder like deft in emacs, but for everything!  
-Use `C-c` instead of pressing `Esc` 10 times to exit it.  
-`:Telescope builtin` shows you what functions are built in.
+- A fuzzy finder like deft in emacs, but for everything!
+- `leader s f` finds files. `<C-t>` opens file in new tab, `<C-x>` hsplit, `<C-v>` vsplit
+- Use `C-c` instead of pressing `Esc` 10 times to exit it.
+- `:Telescope builtin` shows you what functions are built in.
 
 ### Mason
 
@@ -95,8 +99,8 @@ Syntax highlighting and more (?) via the LSP (?). You can install new languages,
 
 ### Treesitter
 
-This is a "parsing library".  
-It's most prominent feature is a syntax highlighter.  
+This is a "parsing library".
+It's most prominent feature is a syntax highlighter.
 But it does much more. E.g. repeatedly pressing C-Space selects ever bigger syntactical regions. You can jump to the next function definition, etc.
 See the `-- [[ Configure Treesitter ]]` part in kickstart-nvim.lua for some more features it provides.
 
@@ -111,7 +115,7 @@ char | verb
 `d` | delete
 `c` | change
 `y` | yank (copy)
-`v` | visually select (V for entire lines) 
+`v` | visually select (V for entire lines)
 
 ### Modifiers
 
@@ -122,7 +126,7 @@ char | modification
 `NUM` | number (e.g.: 1, 2, 10)
 `t` | "to": to char (excluding) (`;` for next, `,` for previous)
 `f` | "find": to char (including) (these only work on the current line)
-`/` | find a string (literal or regex) 
+`/` | find a string (literal or regex)
 
 ### Nouns
 
@@ -132,7 +136,7 @@ char | noun
 `s` or `)`| sentence
 `p` or `}` | paragraph
 `t` | tag (think HTML/XML)
-`b` | block (think programming) 
+`b` | block (think programming)
 `'` | single quotes
 `"` | double quotes
 
@@ -162,7 +166,7 @@ sentence | description
 cmd | description
 --- | -----------
 `gg` | Goto line 0
-`10G` | Goto line 10
+`10G` or `:10` | Goto line 10
 `G` | Goto last line
 `%`  | Goto matching parenthesis
 ---- | ----
@@ -241,31 +245,46 @@ anonymous register.
 ### The dot command
 
 The dot repeats the last command, e.g. deleting a line, or switching to insert mode,
-adding some text, and going back to normal mode.  
+adding some text, and going back to normal mode.
 
 Often, you want to combine a movement with the dot. So search for a word with `/myword`,
 append some text to it, then repeat `n` (go to next occurence) and `.` (append the same text).
 
-### Files
+### Buffers / Files
 
 cmd | description
 --- | -----------
+`Leader sf` | search files with Telescope
+`:Ntree` | Browse directory to open a new file
 `:view file.txt` | Open file readonly
 `:e file.txt` | Open file read/write
-`:tabnew file.txt` | Opens file in new tab
-`gt` | Goto next tab
-`gT` | Goto previous tab
 `Leader Space` | Switch between opened but hidden buffers
-`:Ntree` | Browse directory to open a new file
-`Leader sf` | search files with Telescope
+`:bprevious` | (and `:bnext`) to change opened files
 
 ### Windows
+
+- You can resize windows by mouse-dragging
 
 cmd | description
 --- | -----------
 `:split file.txt` | Open file in horizontal split screen
 `:vsplit file.txt` | Open file in vertical split screen
 `C-w C-w` | Move between windows
+`C-w C-H` | Swap window with left. See `which-key` suggestions after `C-w` for more options
+`<C-t>` | in Telescope find-files, opens file in new tab
+`<C-x>` | in Telescope find-files, opens file in hsplit
+`<C-v>` | in Telescope find-files, opens file in vsplit
+`:q` | Close a window
+
+### Tabs
+
+- Tabs *contain* window splits, not the other way round!
+
+cmd | description
+--- | -----------
+`:tabnew file.txt` | Opens file in new tab
+`gt` | Goto next tab
+`gT` | Goto previous tab
 
 ### Undo
 
@@ -301,7 +320,7 @@ Some examples (from normal mode):
 
 cmd | description
 --- | -----------
-`vi(` | select all inside these parentheses 
+`vi(` | select all inside these parentheses
 `v2i[` | select all inside the 2 parent levels of brackets
 
 `Try moving your [cursor to [THIS] word and] then type "v2i["`
@@ -321,7 +340,7 @@ cmd | description
 
 
 
-## Code 
+## Code
 
 cmd | description
 --- | -----------
@@ -329,4 +348,3 @@ cmd | description
 `gr` | find references where this field, function, etc. is used
 `:Telescope keymaps` |  Browse all currently mapped keys
 `:Mason` | Install new languages (press `i` to install)
-
