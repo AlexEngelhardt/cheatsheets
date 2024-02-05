@@ -1,10 +1,5 @@
 # (neo)vim
 
-## TODO
-
-- [ ] Project wide search-in-files, like Ctrl-Shift-F in PyCharm (ripgrep style?)
-- [ ] Show unsaved changes. `:DiffOrig` must be installed somehow it seems
-
 ## Sources
 
 - `vimtutor`
@@ -92,10 +87,12 @@ Use `:Telescope help_tags` to search in some different way
 - `leader s f` finds files. `<C-t>` opens file in new tab, `<C-x>` hsplit, `<C-v>` vsplit
 - Use `C-c` instead of pressing `Esc` 10 times to exit it.
 - `:Telescope builtin` shows you what functions are built in.
+- `:Telescope keymaps` lets you search all existing (even your own) keymaps
 
 ### Mason
 
-Syntax highlighting and more (?) via the LSP (?). You can install new languages, try adding R
+Syntax highlighting and more (?) via the LSP (?). You can install new languages
+by typing `:Mason`, try adding R.
 
 ### Treesitter
 
@@ -176,6 +173,7 @@ cmd | description
 `)` | Move forward a sentence
 `}` | Move forward a paragraph
 ---- | ----
+`zz` | Like emacs' `<C-l>`, centers the current line vertically. `zt` and `zb` move the active line to top and bottom, respectively.
 `H` | move to the top of the screen ("High")
 `M` | move to the middle of the screen ("Middle")
 `L` | move to the bottom of the screen ("Low")
@@ -260,6 +258,8 @@ cmd | description
 `:e file.txt` | Open file read/write
 `Leader Space` | Switch between opened but hidden buffers
 `:bprevious` | (and `:bnext`) to change opened files
+`:ls` | Shows currently opened files and their numbers
+`:b2` | Switches to file number 2 in the `:ls` output
 
 ### Windows
 

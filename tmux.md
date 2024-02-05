@@ -54,7 +54,7 @@ cmd | description
 cmd | description
 --- | -----------
 `C-s -` | Split pane vertically
-`C-s |` | Split pane horizontally
+`C-s <pipe>` | Split pane horizontally (the .md table fails when I print the pipe character)
 `C-s [arrow]` | Change panes
 `C-s [hjlk]` | Change panes
 `C-s z` | Temporarily make pane fullscreen (or go back)
