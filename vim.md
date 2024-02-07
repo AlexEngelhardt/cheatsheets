@@ -13,14 +13,19 @@
 - `v` goes to *normal* visual mode (selecting text)
   - `V` selects by line
   - `C-v` selects by *rectangle* (like emacs did!)
-- The `:` line is called ex mode
+- The `:` line is called ex mode (or Command)
 - There are some other modes as well, look them up later
-
 
 
 ## Config
 
-- Start naked vim to have factory-reset behavior: `vim -u NONE -N file.txt`
+- You can create different config folders! See
+  [here](https://michaeluloth.com/neovim-switch-configs/)
+  - Put the folders into `~/.config`, e.g. `.config/nvchad`
+  - Then run `NVIM_APPNAME=nvchad nvim` to run nvim using this config folder
+    instead of the default `~/.config/nvim`
+- Start naked vim to have factory-reset behavior: `vim -u NONE -N file.txt` (or
+  `nvim --clean` works too)
 - Custom keybinds: Type `:help map-which-keys` for suggestions on what keys to
   use for custom keybinds.
 - Read `:help lua-guide` to get started with lua
@@ -36,6 +41,7 @@ vimscript | lua
 
 
 ## Neat little tricks
+
 
 cmd | description
 --- | -----------
@@ -80,6 +86,14 @@ Use `leader s h` (leader being Space) for a pretty help search!
 Use `:Telescope help_tags` to search in some different way
 
 ## Plugins
+
+### Which-key
+
+- `which-key` can show you all (including custom) root-level keybindings when
+  you
+  - type `:WhichKey`, or
+  - type e.g. `z`, wait for which-key, then press `backspace` to go up one
+  level
 
 ### Telescope
 

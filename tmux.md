@@ -13,6 +13,7 @@ cmd | description
 --- | -----------
 `C-s ?` | See all commands
 `C-s I` | Install plugins after editing `.tmux.conf`
+`C-s :` | enter a manual command, e.g. `kill-session`
 
 ## From the shell
 
