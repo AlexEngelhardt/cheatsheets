@@ -70,6 +70,9 @@ cmd | description
 `:help CTRL-W_CTRL-I` | normal mode mapping for <C-w><C-i>
 `:help i_CTRL-G_<Down>` | insert mode mapping for <C-g><Down>
 `:help i_<F1>` | help on the F1 key
+--- | ---
+`CTRL-]` | Jump to a topic/link under the cursor
+`CTRL-O` | Jump back
 
 The help pages apply to the *default* keybinds, not those you might have remapped.
 
@@ -204,11 +207,15 @@ cmd | description
 #### Marks
 
 The navigation locations might have to do with **marks**. Type `ma` to mark the current
-cursor position as "a". Type `'a` to go to the line marked a (use a backtick to go to the
-exact location).
+cursor position as "a". Type `'a` to go to the line marked a (**use a backtick to go to the
+exact location**).
+
+Type only `'` to let the `which-key` plugin show you the names and positions of all active marks.
 
 You can copy a selection without going to visual mode this way: Mark the beginning (or end)
 as "a", go to the end (or beginning), and cut with `d [backtick] a` (or yank with `y`).
+
+See [here](https://vim.fandom.com/wiki/Using_marks#Using_marks) about using marks and special marks.
 
 ### Editing
 
@@ -228,14 +235,19 @@ cmd | description
 `s` | substitute from where you are to the next command (noun)
 `S` | substitute the entire current line
 ---- | ----
-`:10,20s/old/new/g` | Replace "old" to "new" between lines 10 and 20
-`:%s/old/new/g` | Replace in whole file
-`:%s/old/new/gc` | Also prompt before each replace
----- | ----
 `x` | delete char
 `X` | delete char backwards
 `D` | delete to end of line
 `J` | join line with next line
+
+### Search + Replace
+
+cmd | description
+--- | -----------
+`:10,20s/old/new/g` | Replace "old" to "new" between lines 10 and 20
+`:%s/old/new/g` | Replace in whole file
+`:%s/old/new/gc` | Also prompt before each replace
+e.g. `S-v jj :s/herp/derp/c` | Search and Replace in a Visual region of 2 lines
 
 ### Copy/Paste
 
@@ -274,6 +286,7 @@ cmd | description
 `:bprevious` | (and `:bnext`) to change opened files
 `:ls` | Shows currently opened files and their numbers
 `:b2` | Switches to file number 2 in the `:ls` output
+`:DiffOrig` | Show changes to saved file (`CTRL-w o` / `:only` closes the other window). Note: You must manually add this function to your config file, see `:help DiffOrig`
 
 ### Windows
 
@@ -288,7 +301,7 @@ cmd | description
 `<C-t>` | in Telescope find-files, opens file in new tab
 `<C-x>` | in Telescope find-files, opens file in hsplit
 `<C-v>` | in Telescope find-files, opens file in vsplit
-`:q` | Close a window
+`:q` or `C-w q` | Close a window
 
 ### Tabs
 
@@ -352,13 +365,13 @@ cmd | description
 `@a` | playback the macro named "a" once
 `.` | playback the macro a second, ..., time
 
+Type `"` to let `which-key` show you the names, contents, and descriptions of all registers
 
 
-## Code
+## Coding (using an LSP)
 
 cmd | description
 --- | -----------
 `gd` | goto definition (of a function, e.g.)
 `gr` | find references where this field, function, etc. is used
-`:Telescope keymaps` |  Browse all currently mapped keys
 `:Mason` | Install new languages (press `i` to install)
