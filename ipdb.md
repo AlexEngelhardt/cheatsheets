@@ -1,5 +1,13 @@
 # ipdb
 
+## Some tips
+
+- `n`: Step over
+- `s`: Step into
+- `j` line_no : Jump to line line_no
+
+## Full cheatsheet
+
 From here: https://wangchuan.github.io/coding/2017/07/12/ipdb-cheat-sheet.html
 
 <dl>
