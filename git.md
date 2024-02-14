@@ -134,6 +134,20 @@ e.g. a botched rebase
 - `git rebase master feature` does the same, but without needing to be checked
   out on feature (mnemonic: Start at `master`, end up at `feature`)
 
+## Interactive rebasing to prettify pull requests
+
+- `git rebase -i master` before pushing a PR to
+  - combine commits into one (e.g. if you forgot fixing a test and it was too
+    late for `commit --amend`)
+  - Split individual files out of one commit and into another
+- But: Create a new branch `ticketid-rebased` before rebasing
+- You can remove a file from one commit by selecting `edit` in the rebase tool.
+  Then while on that commit, checkout or reset or restore (TODO what's the best
+  way?) a file to the previous commit.
+  - **Note: Git stores snapshots, not diffs. So the next commit will
+    incorporate "both changes"**
+- At the end, do `git diff ticketid..ticketid-rebased` to verify the contents
+  after rebasing are identical
 
 ## Remotes
 
