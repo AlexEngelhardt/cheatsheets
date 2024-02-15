@@ -4,7 +4,7 @@
 
 - `n`: Step over
 - `s`: Step into
-- `j` line_no : Jump to line line_no
+- `j` line_no : **Jump** to line line_no, **skipping or rerunning code**
 
 ## Full cheatsheet
 
